@@ -1,7 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 
 const About = () => {
-
+  const [state, setState] = useState({
+    persons: [
+      { name: 'Max', age: 28 },
+      { name: 'Manu', age: 29 },
+      { name: 'Stephanie', age: 26 }
+    ],    
+    otherState: 'some'
+  })
   useEffect(() => {
     func()
   }, [])
