@@ -3,9 +3,9 @@ import React ,{ useState } from 'react'
 const Users = () => {
   const [state, setState] = useState({
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
+      { id:1 ,name: 'Max', age: 28 },
+      { id:2, name: 'Manu', age: 29 },
+      { id:3, name: 'Stephanie', age: 26 }
     ],    
     otherState: 'some'
   })
@@ -20,7 +20,9 @@ const Users = () => {
    
     setState({
       ...state,
-      persons:[...state.persons, {...state.persons[idx], old:'thisis hold'}]
+      persons: state.persons.map(person => 
+        person.id === idx ? {...person, name2:"yeoolw"} : person
+      )
     })
   }
   return ( 
