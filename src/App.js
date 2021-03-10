@@ -9,7 +9,7 @@ import {
 import Home from './components/Home'
 import About from './components/About'
 import Users from './components/Users'
-import Orderwrap from './components/Orderwrap'
+import Order from './components/Order'
 function App() {
   return (
     <div className="App">
@@ -42,7 +42,7 @@ function App() {
               <Route exact path="/" component={Home}>
                 <Home />
               </Route>
-              <Route exact path="/order" component={Orderwrap}>
+              <Route exact path="/order" component={Order}>
                 <Home />
               </Route>
             </Switch>
