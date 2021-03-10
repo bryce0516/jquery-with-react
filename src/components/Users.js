@@ -10,27 +10,16 @@ const Users = () => {
       { id: 5, name: "Stephanie", age: 26 ,isChecked: false},
       { id: 6, name: "Stephanie", age: 26 ,isChecked: false},
     ],
+    id : 6,
     otherState: "some",
     isAllChecked:false
   });
 
-  // const [checkedItems, setCheckedItems] = useState(new Set());
-
-  // const checkedItemHandler = (id, isChecked) => {
-  //   if (isChecked) {
-  //     checkedItems.add(id);
-  //     setCheckedItems(checkedItems);
-  //   } else if (!isChecked && checkedItems.has(id)) {
-  //     checkedItems.delete(id);
-  //     setCheckedItems(checkedItems);
-  //   }
-  // };
-
   console.log(state.persons);
-  const handleAdd = () => {
+  const handleAdd = (id) => {
     setState({
       ...state,
-      persons: [...state.persons, { name: "Jerry", age: 31 }],
+      persons: [...state.persons, {id: id+1, name: "Jerry", age: 31 }],
     });
   };
   const handleEdit = (idx) => {
@@ -63,11 +52,11 @@ const Users = () => {
   return (
     <>
       <div>this is users</div>
-      <input type="checkbox" checked={state.isAllChecked} onChange={() => handleAllchecked(state.isAllChecked)} />
+      <input type="checkbox" id="allCheck" name="allCheck"checked={state.isAllChecked} onChange={() => handleAllchecked(state.isAllChecked)} />{` `}<label htmlFor="allCheck">allCheck</label>
       {state.persons.map((data, index) => {
-        return <div key={data.id}><input type="checkbox" checked={data.isChecked} onChange={() => handleindiviualChecked(data.id, data.isChecked)}/><p key={index}>{data.name}</p></div>;
+        return <div key={data.id}><input type="checkbox" key={data.id} id="indivisual" name="indivisual" checked={data.isChecked} onChange={() => handleindiviualChecked(data.id, data.isChecked)}/><label htmlFor="indivisual">{data.name}</label></div>;
       })}
-      <button onClick={handleAdd}>add new state</button>
+      <button onClick={() => handleAdd(state.id)}>add new state</button>
       <button onClick={() => handleEdit(1)}>edit array</button>
 
       <div>
