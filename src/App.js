@@ -9,6 +9,7 @@ import {
 import Home from './components/Home'
 import About from './components/About'
 import Users from './components/Users'
+import Orderwrap from './components/Orderwrap'
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,9 @@ function App() {
                 <li>
                   <Link to="/users">Users</Link>
                 </li>
+                <li>
+                  <Link to="/order">Order</Link>
+                </li>
               </ul>
             </nav>
             <Switch>
@@ -36,6 +40,9 @@ function App() {
                 <Users />
               </Route>
               <Route exact path="/" component={Home}>
+                <Home />
+              </Route>
+              <Route exact path="/order" component={Orderwrap}>
                 <Home />
               </Route>
             </Switch>
