@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import useFetch from './useFetch'
 const Users = () => {
   const [state, setState] = useState({
     persons: [
@@ -14,7 +14,8 @@ const Users = () => {
     otherState: "some",
     isAllChecked:false
   });
-
+  const data =  useFetch()
+  console.log('data', data)
   console.log(state.persons);
   const handleAdd = (id) => {
     setState({
